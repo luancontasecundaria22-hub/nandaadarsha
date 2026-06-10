@@ -38,15 +38,13 @@
     /* background photo */
     .hero__bg {
       position: absolute;
-      inset: 0;
+      inset: -30% 0;
       background-image: url('https://images.unsplash.com/photo-1545389336-cf090694435e?w=1920&q=85&fit=crop&crop=center');
       background-size: cover;
       background-position: center 20%;
       filter: brightness(0.72) saturate(0.85);
-      transform: scale(1.03);
-      transition: transform 8s ease;
+      will-change: transform;
     }
-    .hero__bg.loaded { transform: scale(1); }
 
     /* warm color grade overlay — mimics the poster's cinematic warmth */
     .hero__grade {
@@ -310,16 +308,19 @@
   <div class="coming-soon">mais seções em breve</div>
 
   <script>
-    // trigger bg zoom once loaded
     const bg = document.getElementById('heroBg');
-    const img = new Image();
-    img.onload = () => bg.classList.add('loaded');
-    img.src = bg.style.backgroundImage?.match(/url\(['"]?(.+?)['"]?\)/)?.[1] || '';
-    // get url from css
-    const cssUrl = 'https://images.unsplash.com/photo-1545389336-cf090694435e?w=1920&q=85&fit=crop&crop=center';
-    const preload = new Image();
-    preload.onload = () => bg.classList.add('loaded');
-    preload.src = cssUrl;
+    const hero = bg.closest('.hero');
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const heroH  = hero.offsetHeight;
+      if (scrollY > heroH) return;
+      // move bg at 40% of scroll speed — creates parallax depth
+      const offset = scrollY * 0.4;
+      bg.style.transform = `translateY(${offset}px)`;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
   </script>
 
 </body>
