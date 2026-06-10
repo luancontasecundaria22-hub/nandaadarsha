@@ -127,6 +127,24 @@
       user-select: none;
     }
 
+    /* letter shadow on hover */
+    .hero__headline .word {
+      display: inline-block;
+      transition: text-shadow 0.25s ease, transform 0.25s ease;
+      cursor: default;
+    }
+    .hero__headline .word:hover {
+      text-shadow:
+        4px 6px 0px rgba(0,0,0,0.55),
+        6px 10px 18px rgba(0,0,0,0.35);
+      transform: translateY(-3px);
+    }
+    .hero__headline em .word:hover {
+      text-shadow:
+        4px 6px 0px rgba(120, 70, 10, 0.6),
+        6px 10px 18px rgba(201,169,110,0.4);
+    }
+
     .hero__headline em {
       font-style: normal;
       color: var(--gold);
@@ -345,10 +363,10 @@
     <!-- HEADLINE -->
     <div class="hero__content">
       <h1 class="hero__headline">
-        FLUA<br>
-        LIVREMENTE.<br>
-        VIVA COM<br>
-        <em>PRESENÇA.</em>
+        <span class="word">FLUA</span><br>
+        <span class="word">LIVREMENTE.</span><br>
+        <span class="word">VIVA</span> <span class="word">COM</span><br>
+        <em><span class="word">PRESENÇA.</span></em>
       </h1>
       <div class="hero__divider"></div>
       <p class="hero__sub">Yoga · Meditação · Bem-Estar</p>
