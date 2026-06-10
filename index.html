@@ -249,6 +249,56 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ─── LIQUID GLASS ─── */
+    .liquid-glass {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 4;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+
+      /* glass layers */
+      background:
+        radial-gradient(ellipse at 35% 35%, rgba(255,255,255,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 65%, rgba(201,169,110,0.08) 0%, transparent 55%);
+      backdrop-filter: blur(6px) brightness(1.12) saturate(1.3);
+      -webkit-backdrop-filter: blur(6px) brightness(1.12) saturate(1.3);
+
+      /* refraction border */
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.35),
+        inset 0 -1px 1px rgba(0,0,0,0.15),
+        0 8px 40px rgba(0,0,0,0.25);
+
+      /* SVG displacement filter applied below */
+      filter: url(#glass-distort);
+    }
+    .liquid-glass.visible { opacity: 1; }
+
+    /* inner specular highlight */
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      top: 12%;
+      left: 18%;
+      width: 36%;
+      height: 22%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.45) 0%, transparent 100%);
+      filter: blur(6px);
+    }
+    /* subtle rim */
+    .liquid-glass::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
     /* ─── BELOW HERO PLACEHOLDER ─── */
     .coming-soon {
       background: #0e0704;
@@ -265,10 +315,23 @@
 </head>
 <body>
 
+  <!-- SVG filter for glass refraction/distortion -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="glass-distort" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="linearRGB">
+        <feTurbulence id="glassTurb" type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="3" seed="2" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+        <feComposite in="displaced" in2="SourceGraphic" operator="in"/>
+      </filter>
+    </defs>
+  </svg>
+
   <section class="hero">
     <div class="hero__bg" id="heroBg"></div>
     <div class="hero__grade"></div>
     <div class="hero__tint"></div>
+    <!-- Liquid Glass orb -->
+    <div class="liquid-glass" id="glassOrb"></div>
 
     <!-- NAV -->
     <nav class="nav">
@@ -308,19 +371,81 @@
   <div class="coming-soon">mais seções em breve</div>
 
   <script>
-    const bg = document.getElementById('heroBg');
+    /* ── Parallax ── */
+    const bg   = document.getElementById('heroBg');
     const hero = bg.closest('.hero');
 
-    function onScroll() {
-      const scrollY = window.scrollY;
-      const heroH  = hero.offsetHeight;
-      if (scrollY > heroH) return;
-      // move bg at 40% of scroll speed — creates parallax depth
-      const offset = scrollY * 0.4;
-      bg.style.transform = `translateY(${offset}px)`;
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      if (sy > hero.offsetHeight) return;
+      bg.style.transform = `translateY(${sy * 0.4}px)`;
+    }, { passive: true });
+
+    /* ── Liquid Glass ── */
+    const orb      = document.getElementById('glassOrb');
+    const turbEl   = document.getElementById('glassTurb');
+
+    let mx = 0, my = 0;       // target mouse
+    let cx = 0, cy = 0;       // current (lerped)
+    let size = 180;
+    let seed = 2;
+    let rafId;
+    let inside = false;
+
+    // smooth lerp factor
+    const LERP = 0.095;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function animate() {
+      cx = lerp(cx, mx, LERP);
+      cy = lerp(cy, my, LERP);
+
+      orb.style.left = cx + 'px';
+      orb.style.top  = cy + 'px';
+
+      // slowly drift the turbulence seed for a living-water feel
+      seed += 0.003;
+      turbEl.setAttribute('seed', seed);
+
+      rafId = requestAnimationFrame(animate);
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    hero.addEventListener('mouseenter', (e) => {
+      inside = true;
+      mx = e.clientX; my = e.clientY;
+      cx = mx; cy = my;
+      orb.classList.add('visible');
+      orb.style.width  = size + 'px';
+      orb.style.height = size + 'px';
+      if (!rafId) animate();
+    });
+
+    hero.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      inside = false;
+      orb.classList.remove('visible');
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    });
+
+    // grow on mousedown, shrink on mouseup — tactile feel
+    hero.addEventListener('mousedown', () => {
+      size = 240;
+      orb.style.width  = size + 'px';
+      orb.style.height = size + 'px';
+      turbEl.setAttribute('baseFrequency', '0.022 0.028');
+    });
+    hero.addEventListener('mouseup', () => {
+      size = 180;
+      orb.style.width  = size + 'px';
+      orb.style.height = size + 'px';
+      turbEl.setAttribute('baseFrequency', '0.012 0.018');
+    });
   </script>
 
 </body>
