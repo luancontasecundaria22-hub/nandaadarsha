@@ -127,22 +127,10 @@
       user-select: none;
     }
 
-    /* letter shadow on hover */
     .hero__headline .word {
       display: inline-block;
-      transition: text-shadow 0.25s ease, transform 0.25s ease;
       cursor: default;
-    }
-    .hero__headline .word:hover {
-      text-shadow:
-        4px 6px 0px rgba(0,0,0,0.55),
-        6px 10px 18px rgba(0,0,0,0.35);
-      transform: translateY(-3px);
-    }
-    .hero__headline em .word:hover {
-      text-shadow:
-        4px 6px 0px rgba(120, 70, 10, 0.6),
-        6px 10px 18px rgba(201,169,110,0.4);
+      transition: text-shadow 0.08s linear;
     }
 
     .hero__headline em {
@@ -267,55 +255,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── LIQUID GLASS ─── */
-    .liquid-glass {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 4;
-      transform: translate(-50%, -50%);
-      transition: width 0.4s ease, height 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
-
-      /* glass layers */
-      background:
-        radial-gradient(ellipse at 35% 35%, rgba(255,255,255,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse at 70% 65%, rgba(201,169,110,0.08) 0%, transparent 55%);
-      backdrop-filter: blur(6px) brightness(1.12) saturate(1.3);
-      -webkit-backdrop-filter: blur(6px) brightness(1.12) saturate(1.3);
-
-      /* refraction border */
-      border: 1px solid rgba(255,255,255,0.22);
-      box-shadow:
-        inset 0 1px 1px rgba(255,255,255,0.35),
-        inset 0 -1px 1px rgba(0,0,0,0.15),
-        0 8px 40px rgba(0,0,0,0.25);
-
-      /* SVG displacement filter applied below */
-      filter: url(#glass-distort);
-    }
-    .liquid-glass.visible { opacity: 1; }
-
-    /* inner specular highlight */
-    .liquid-glass::before {
-      content: '';
-      position: absolute;
-      top: 12%;
-      left: 18%;
-      width: 36%;
-      height: 22%;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(255,255,255,0.45) 0%, transparent 100%);
-      filter: blur(6px);
-    }
-    /* subtle rim */
-    .liquid-glass::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
 
     /* ─── BELOW HERO PLACEHOLDER ─── */
     .coming-soon {
@@ -333,23 +272,10 @@
 </head>
 <body>
 
-  <!-- SVG filter for glass refraction/distortion -->
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <filter id="glass-distort" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="linearRGB">
-        <feTurbulence id="glassTurb" type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="3" seed="2" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
-        <feComposite in="displaced" in2="SourceGraphic" operator="in"/>
-      </filter>
-    </defs>
-  </svg>
-
   <section class="hero">
     <div class="hero__bg" id="heroBg"></div>
     <div class="hero__grade"></div>
     <div class="hero__tint"></div>
-    <!-- Liquid Glass orb -->
-    <div class="liquid-glass" id="glassOrb"></div>
 
     <!-- NAV -->
     <nav class="nav">
@@ -391,7 +317,7 @@
   <script>
     /* ── Parallax ── */
     const bg   = document.getElementById('heroBg');
-    const hero = bg.closest('.hero');
+    const hero = document.querySelector('.hero');
 
     window.addEventListener('scroll', () => {
       const sy = window.scrollY;
@@ -399,71 +325,52 @@
       bg.style.transform = `translateY(${sy * 0.4}px)`;
     }, { passive: true });
 
-    /* ── Liquid Glass ── */
-    const orb      = document.getElementById('glassOrb');
-    const turbEl   = document.getElementById('glassTurb');
+    /* ── Light-source text shadow ──
+       Mouse position acts as a light — shadow projects away from it.
+       Each .word gets a shadow offset calculated from its center to the cursor.
+    */
+    const words = document.querySelectorAll('.hero__headline .word');
 
-    let mx = 0, my = 0;       // target mouse
-    let cx = 0, cy = 0;       // current (lerped)
-    let size = 180;
-    let seed = 2;
-    let rafId;
-    let inside = false;
+    function updateShadows(mx, my) {
+      words.forEach(word => {
+        const r   = word.getBoundingClientRect();
+        const wx  = r.left + r.width  / 2;
+        const wy  = r.top  + r.height / 2;
 
-    // smooth lerp factor
-    const LERP = 0.095;
+        // vector from light (mouse) to word center
+        const dx  = wx - mx;
+        const dy  = wy - my;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-    function lerp(a, b, t) { return a + (b - a) * t; }
+        // shadow length grows closer to the word, fades far away
+        const MAX_DIST = 600;
+        const strength = Math.max(0, 1 - dist / MAX_DIST);
+        const len = strength * 14;
 
-    function animate() {
-      cx = lerp(cx, mx, LERP);
-      cy = lerp(cy, my, LERP);
+        // normalise direction
+        const nx  = dist > 0 ? dx / dist : 0;
+        const ny  = dist > 0 ? dy / dist : 0;
 
-      orb.style.left = cx + 'px';
-      orb.style.top  = cy + 'px';
+        const sx  = (nx * len).toFixed(1);
+        const sy2 = (ny * len).toFixed(1);
+        const blur = (8 + strength * 16).toFixed(1);
+        const alpha = (0.25 + strength * 0.55).toFixed(2);
 
-      // slowly drift the turbulence seed for a living-water feel
-      seed += 0.003;
-      turbEl.setAttribute('seed', seed);
+        const isGold = word.closest('em');
+        const color  = isGold
+          ? `rgba(120,60,10,${alpha})`
+          : `rgba(0,0,0,${alpha})`;
 
-      rafId = requestAnimationFrame(animate);
+        word.style.textShadow = `${sx}px ${sy2}px ${blur}px ${color}`;
+      });
     }
 
-    hero.addEventListener('mouseenter', (e) => {
-      inside = true;
-      mx = e.clientX; my = e.clientY;
-      cx = mx; cy = my;
-      orb.classList.add('visible');
-      orb.style.width  = size + 'px';
-      orb.style.height = size + 'px';
-      if (!rafId) animate();
-    });
+    function clearShadows() {
+      words.forEach(w => w.style.textShadow = '');
+    }
 
-    hero.addEventListener('mousemove', (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-    });
-
-    hero.addEventListener('mouseleave', () => {
-      inside = false;
-      orb.classList.remove('visible');
-      cancelAnimationFrame(rafId);
-      rafId = null;
-    });
-
-    // grow on mousedown, shrink on mouseup — tactile feel
-    hero.addEventListener('mousedown', () => {
-      size = 240;
-      orb.style.width  = size + 'px';
-      orb.style.height = size + 'px';
-      turbEl.setAttribute('baseFrequency', '0.022 0.028');
-    });
-    hero.addEventListener('mouseup', () => {
-      size = 180;
-      orb.style.width  = size + 'px';
-      orb.style.height = size + 'px';
-      turbEl.setAttribute('baseFrequency', '0.012 0.018');
-    });
+    hero.addEventListener('mousemove', e => updateShadows(e.clientX, e.clientY));
+    hero.addEventListener('mouseleave', clearShadows);
   </script>
 
 </body>
