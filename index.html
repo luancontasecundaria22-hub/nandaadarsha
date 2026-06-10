@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nanda Adarsha — Yoga &amp; Bem-Estar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-script">Nanda</span>
+        <span class="logo-serif">Adarsha</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#styles">Estilos</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#classes">Aulas</a></li>
+        <li><a href="#contact" class="nav-cta">Contato</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-texture"></div>
+      <div class="hero-gradient"></div>
+    </div>
+
+    <div class="hero-ornament top-left">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+        <circle cx="60" cy="60" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+        <line x1="60" y1="5" x2="60" y2="115" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+        <line x1="5" y1="60" x2="115" y2="60" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+        <circle cx="60" cy="60" r="4" fill="currentColor" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="hero-ornament bottom-right">
+      <svg viewBox="0 0 80 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 10 C40 10 70 40 70 80 C70 120 40 150 40 150" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+        <path d="M40 10 C40 10 10 40 10 80 C10 120 40 150 40 150" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+        <circle cx="40" cy="10" r="3" fill="currentColor" opacity="0.4"/>
+        <circle cx="40" cy="150" r="3" fill="currentColor" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">
+        <span class="eyebrow-line"></span>
+        <span class="hero-script">Yoga &amp; Bem-Estar</span>
+        <span class="eyebrow-line"></span>
+      </p>
+      <h1 class="hero-title fade-up delay-1">
+        <span class="title-line">FLUA</span>
+        <span class="title-line title-accent">LIVREMENTE.</span>
+        <span class="title-line">VIVA COM</span>
+        <span class="title-line title-accent">PRESENÇA.</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        Desperte o equilíbrio entre corpo, mente e espírito através<br />
+        de uma prática transformadora e autêntica.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#classes" class="btn btn-primary">Explorar Aulas</a>
+        <a href="#about" class="btn btn-ghost">Nossa Filosofia</a>
+      </div>
+    </div>
+
+    <!-- Yoga silhouette -->
+    <div class="hero-figure fade-up delay-2">
+      <svg viewBox="0 0 200 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Silhouette of tree pose -->
+        <circle cx="100" cy="28" r="18" fill="currentColor" opacity="0.15"/>
+        <!-- body -->
+        <path d="M100 46 L100 170" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.2"/>
+        <!-- arms raised -->
+        <path d="M100 80 C80 60 60 50 45 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+        <path d="M100 80 C120 60 140 50 155 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+        <!-- left leg down -->
+        <path d="M100 170 L75 260 L72 320" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.2"/>
+        <!-- right leg (tree pose - foot on inner thigh) -->
+        <path d="M100 170 C108 200 115 220 115 245" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.2"/>
+        <path d="M75 210 C85 218 95 220 115 218" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.15"/>
+        <!-- lotus glow -->
+        <circle cx="100" cy="170" r="60" fill="currentColor" opacity="0.03"/>
+        <circle cx="100" cy="170" r="90" fill="currentColor" opacity="0.02"/>
+      </svg>
+    </div>
+
+    <div class="scroll-hint fade-up delay-4">
+      <span>Role para descobrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- YOGA STYLES -->
+  <section id="styles" class="section-styles">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Práticas &amp; Disciplinas</p>
+        <h2 class="section-title">Encontre Seu<br /><em>Estilo de Yoga</em></h2>
+      </div>
+
+      <div class="tabs-nav reveal">
+        <button class="tab-btn active" data-tab="hatha">Hatha Yoga</button>
+        <button class="tab-btn" data-tab="vinyasa">Vinyasa Flow</button>
+        <button class="tab-btn" data-tab="yin">Yin Yoga</button>
+        <button class="tab-btn" data-tab="meditacao">Meditação</button>
+        <button class="tab-btn" data-tab="pranayama">Pranayama</button>
+      </div>
+
+      <div class="tabs-content">
+
+        <div class="tab-panel active" id="tab-hatha">
+          <div class="tab-layout">
+            <div class="tab-text">
+              <p class="tab-label">Fundamentos &amp; Equilíbrio</p>
+              <h3 class="tab-title">Hatha Yoga</h3>
+              <p class="tab-desc">
+                Hatha é a raiz de todas as práticas físicas de yoga. Através de posturas (asanas) e respiração consciente, cultivamos força, flexibilidade e equilíbrio interior. Perfeito para iniciantes e praticantes de todos os níveis que buscam uma prática sólida e transformadora.
+              </p>
+              <ul class="tab-benefits">
+                <li>Melhora a postura e alinhamento corporal</li>
+                <li>Reduz o estresse e a ansiedade</li>
+                <li>Aumenta a flexibilidade e força muscular</li>
+                <li>Promove qualidade de sono profundo</li>
+                <li>Desenvolve foco e clareza mental</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark">Saiba Mais</a>
+            </div>
+            <div class="tab-visual" data-style="hatha">
+              <div class="visual-inner">
+                <div class="visual-glyph">
+                  <svg viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="20" r="8" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M50 28 L50 60 M35 42 L65 42 M50 60 L38 85 M50 60 L62 85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                  </svg>
+                </div>
+                <p class="visual-word">Ha · Tha</p>
+                <p class="visual-meaning">Sol · Lua</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-vinyasa">
+          <div class="tab-layout">
+            <div class="tab-text">
+              <p class="tab-label">Movimento &amp; Fluidez</p>
+              <h3 class="tab-title">Vinyasa Flow</h3>
+              <p class="tab-desc">
+                Vinyasa é a dança do yoga — cada movimento flui sincronizado com a respiração criando uma sequência meditativa em movimento. A prática aquece o corpo de dentro para fora, construindo calor interno e energia vital enquanto você flui de postura em postura com graça e intenção.
+              </p>
+              <ul class="tab-benefits">
+                <li>Cardio suave e condicionamento físico</li>
+                <li>Sincronização entre movimento e respiração</li>
+                <li>Queima de toxinas através do calor interno</li>
+                <li>Desenvolve coordenação e consciência corporal</li>
+                <li>Energia e vitalidade ao longo do dia</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark">Saiba Mais</a>
+            </div>
+            <div class="tab-visual" data-style="vinyasa">
+              <div class="visual-inner">
+                <div class="visual-glyph">
+                  <svg viewBox="0 0 100 100" fill="none">
+                    <path d="M20 50 Q35 20 50 50 Q65 80 80 50" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                    <path d="M20 50 Q35 30 50 50 Q65 70 80 50" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+                  </svg>
+                </div>
+                <p class="visual-word">Vinyāsa</p>
+                <p class="visual-meaning">Fluxo · Respiração</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-yin">
+          <div class="tab-layout">
+            <div class="tab-text">
+              <p class="tab-label">Profundidade &amp; Rendição</p>
+              <h3 class="tab-title">Yin Yoga</h3>
+              <p class="tab-desc">
+                Yin é a prática do ceder. Posturas são mantidas por longos períodos — de 3 a 7 minutos — permitindo que o corpo se abra profundamente nos tecidos conectivos, fáscias e articulações. Uma prática contemplativa que trabalha o que o yang não alcança, cultivando paciência e aceitação.
+              </p>
+              <ul class="tab-benefits">
+                <li>Hidratação profunda dos tecidos conjuntivos</li>
+                <li>Aumento da amplitude de movimento</li>
+                <li>Ativação do sistema nervoso parassimpático</li>
+                <li>Trabalho com meridianos e energia sutil</li>
+                <li>Prática meditativa e contemplativa</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark">Saiba Mais</a>
+            </div>
+            <div class="tab-visual" data-style="yin">
+              <div class="visual-inner">
+                <div class="visual-glyph">
+                  <svg viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    <path d="M50 20 A30 30 0 0 1 50 80 A15 15 0 0 1 50 50 A15 15 0 0 0 50 20Z" fill="currentColor" opacity="0.15"/>
+                    <circle cx="50" cy="35" r="4" fill="currentColor" opacity="0.5"/>
+                    <circle cx="50" cy="65" r="4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                  </svg>
+                </div>
+                <p class="visual-word">Yin · Yang</p>
+                <p class="visual-meaning">Sombra · Luz</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-meditacao">
+          <div class="tab-layout">
+            <div class="tab-text">
+              <p class="tab-label">Silêncio &amp; Presença</p>
+              <h3 class="tab-title">Meditação</h3>
+              <p class="tab-desc">
+                A meditação é o coração do yoga — a prática de voltar ao momento presente, de observar sem julgamento, de encontrar a quietude que sempre esteve ali. Explore diferentes técnicas: vipassana, loving-kindness, visualização e meditação guiada para cultivar paz interior duradoura.
+              </p>
+              <ul class="tab-benefits">
+                <li>Redução comprovada do cortisol e estresse</li>
+                <li>Melhora da concentração e memória</li>
+                <li>Maior equanimidade emocional</li>
+                <li>Conexão com o self mais profundo</li>
+                <li>Qualidade de vida e bem-estar integral</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark">Saiba Mais</a>
+            </div>
+            <div class="tab-visual" data-style="meditacao">
+              <div class="visual-inner">
+                <div class="visual-glyph">
+                  <svg viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width="0.8" opacity="0.2"/>
+                    <circle cx="50" cy="50" r="25" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                    <circle cx="50" cy="50" r="15" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+                    <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.6"/>
+                  </svg>
+                </div>
+                <p class="visual-word">Dhyāna</p>
+                <p class="visual-meaning">Meditação · Absorção</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-pranayama">
+          <div class="tab-layout">
+            <div class="tab-text">
+              <p class="tab-label">Energia &amp; Respiração</p>
+              <h3 class="tab-title">Pranayama</h3>
+              <p class="tab-desc">
+                Prana é a força vital que permeia tudo — e o pranayama é a ciência de cultivá-la através da respiração. Técnicas como Nadi Shodhana, Kapalabhati e Bhramari purificam os canais energéticos, acalmam o sistema nervoso e elevam a consciência, preparando o praticante para estados mais profundos.
+              </p>
+              <ul class="tab-benefits">
+                <li>Purificação dos canais energéticos (nadis)</li>
+                <li>Regulação do sistema nervoso autônomo</li>
+                <li>Aumento da capacidade pulmonar</li>
+                <li>Clareza mental e elevação da energia</li>
+                <li>Preparação para práticas mais profundas</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark">Saiba Mais</a>
+            </div>
+            <div class="tab-visual" data-style="pranayama">
+              <div class="visual-inner">
+                <div class="visual-glyph">
+                  <svg viewBox="0 0 100 100" fill="none">
+                    <path d="M50 15 C50 15 75 35 75 55 C75 75 50 85 50 85 C50 85 25 75 25 55 C25 35 50 15 50 15Z" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    <path d="M50 30 C50 30 65 42 65 55 C65 68 50 75 50 75 C50 75 35 68 35 55 C35 42 50 30 50 30Z" fill="currentColor" opacity="0.1"/>
+                  </svg>
+                </div>
+                <p class="visual-word">Prāṇāyāma</p>
+                <p class="visual-meaning">Expansão · Prana</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / PHILOSOPHY -->
+  <section id="about" class="section-about">
+    <div class="about-bg-text">YOGA</div>
+    <div class="container about-grid">
+      <div class="about-quote reveal">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          O yoga não é sobre<br />tocar os pés.<br />
+          <em>É sobre o que você<br />aprende no caminho<br />para baixo.</em>
+        </blockquote>
+        <cite>— Jigar Gor</cite>
+        <div class="quote-ornament">
+          <svg viewBox="0 0 60 8" fill="none">
+            <line x1="0" y1="4" x2="20" y2="4" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+            <circle cx="30" cy="4" r="2.5" fill="currentColor" opacity="0.5"/>
+            <line x1="40" y1="4" x2="60" y2="4" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="about-content reveal delay-1">
+        <p class="section-label">Nossa Filosofia</p>
+        <h2 class="about-title">Yoga como<br /><em>Caminho de Vida</em></h2>
+        <p class="about-text">
+          Na Nanda Adarsha, acreditamos que o yoga é muito mais do que exercício físico. É uma filosofia viva, um sistema milenar de autoconhecimento que nos convida a olhar para dentro e encontrar a paz que sempre existiu.
+        </p>
+        <p class="about-text">
+          Nossa abordagem une a sabedoria das tradições clássicas com uma linguagem acessível e contemporânea. Cada aula é uma oportunidade de se reconectar com o que realmente importa — a sua essência.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">8+</span>
+            <span class="stat-label">Anos de prática</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">300h</span>
+            <span class="stat-label">Formação certificada</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Jornada contínua</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES / SCHEDULE -->
+  <section id="classes" class="section-classes">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Agenda Semanal</p>
+        <h2 class="section-title">Escolha Sua<br /><em>Prática</em></h2>
+      </div>
+
+      <div class="classes-grid">
+
+        <div class="class-card reveal" data-delay="0">
+          <div class="card-badge">Recomendado</div>
+          <div class="card-top hatha-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M20 13 L20 28 M10 18 L30 18 M20 28 L13 38 M20 28 L27 38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-type">Hatha Yoga</p>
+            <h3 class="card-name">Fundamentos do Yoga</h3>
+            <p class="card-desc">Ideal para quem está começando ou quer solidificar a base da prática.</p>
+            <div class="card-meta">
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.5V8L10.5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>Seg / Qua / Sex — 07h00</span>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 2V5M11 2V5M2.5 7H13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>60 minutos</span>
+              </div>
+              <div class="meta-item level-badge iniciante">
+                <span>Iniciante – Intermediário</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-card reveal" data-delay="1">
+          <div class="card-top vinyasa-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M8 20 Q15 8 20 20 Q25 32 32 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="8" cy="20" r="2.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="32" cy="20" r="2.5" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-type">Vinyasa Flow</p>
+            <h3 class="card-name">Fluxo em Movimento</h3>
+            <p class="card-desc">Sequências dinâmicas que unem respiração e movimento com fluidez e intenção.</p>
+            <div class="card-meta">
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.5V8L10.5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>Ter / Qui — 18h30</span>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 2V5M11 2V5M2.5 7H13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>75 minutos</span>
+              </div>
+              <div class="meta-item level-badge intermediario">
+                <span>Intermediário</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-card reveal" data-delay="2">
+          <div class="card-top yin-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                <path d="M20 7 A13 13 0 0 1 20 33 A6.5 6.5 0 0 1 20 20 A6.5 6.5 0 0 0 20 7Z" fill="currentColor" opacity="0.2"/>
+                <circle cx="20" cy="13.5" r="2.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="20" cy="26.5" r="2.5" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-type">Yin + Meditação</p>
+            <h3 class="card-name">Restauração Profunda</h3>
+            <p class="card-desc">Uma jornada de rendição e escuta interior. Posturas longas e meditação guiada.</p>
+            <div class="card-meta">
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.5V8L10.5 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>Sáb — 09h00</span>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 2V5M11 2V5M2.5 7H13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span>90 minutos</span>
+              </div>
+              <div class="meta-item level-badge todos">
+                <span>Todos os níveis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="section-cta">
+    <div class="cta-bg">
+      <div class="cta-texture"></div>
+    </div>
+    <div class="container cta-inner">
+      <div class="cta-ornament reveal">
+        <svg viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="0.5" opacity="0.3" stroke-dasharray="4 4"/>
+          <circle cx="40" cy="40" r="24" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="40" cy="40" r="6" fill="currentColor" opacity="0.3"/>
+        </svg>
+      </div>
+      <p class="cta-script reveal">comece hoje</p>
+      <h2 class="cta-title reveal delay-1">COMECE SUA<br />JORNADA HOJE</h2>
+      <p class="cta-sub reveal delay-2">
+        Receba informações sobre aulas, horários e uma meditação guiada de boas-vindas.
+      </p>
+      <form class="cta-form reveal delay-3" id="ctaForm">
+        <div class="form-group">
+          <input type="text" placeholder="Seu nome" id="formName" required />
+          <input type="email" placeholder="Seu e-mail" id="formEmail" required />
+          <button type="submit" class="btn btn-primary">Quero Começar</button>
+        </div>
+        <p class="form-note">Sem spam. Apenas conteúdo com intenção.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M7 12l3.5 3.5L17 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Namaste! Em breve você receberá nosso e-mail de boas-vindas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-script">Nanda</span>
+          <span class="logo-serif">Adarsha</span>
+        </a>
+        <p class="footer-tagline">Yoga &amp; Bem-Estar · São Paulo, Brasil</p>
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Início</a>
+        <a href="#styles">Estilos</a>
+        <a href="#about">Sobre</a>
+        <a href="#classes">Aulas</a>
+        <a href="#contact">Contato</a>
+      </div>
+      <div class="footer-social">
+        <!-- Instagram -->
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 9l5 3-5 3V9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.5"/><path d="M16.5 14.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.4-.8 1-.9 1.2-.2.2-.3.2-.6 0-.3-.2-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-1-2.2-.2-.5-.5-.4-.7-.4H7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.7 1.1 2.9c.1.2 2 3.1 4.8 4.3 2.8 1.2 2.8.8 3.3.8.5 0 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3z" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Nanda Adarsha. Todos os direitos reservados.</p>
+      <p class="footer-om">ॐ</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
