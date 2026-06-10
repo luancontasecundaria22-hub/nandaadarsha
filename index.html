@@ -256,17 +256,639 @@
     }
 
 
-    /* ─── BELOW HERO PLACEHOLDER ─── */
-    .coming-soon {
+    /* ─── SCROLL REVEAL ─── */
+    [data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
+    [data-reveal]:nth-child(2) { transition-delay: 0.15s; }
+    [data-reveal]:nth-child(3) { transition-delay: 0.3s; }
+
+    /* ─── SECTION 2 — SOBRE NÓS ─── */
+    .sobre {
       background: #0e0704;
+      padding: 120px 80px;
+    }
+    .sobre__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .sobre__heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 7vw, 100px);
+      line-height: 0.95;
       color: var(--cream);
-      text-align: center;
-      padding: 120px 40px;
-      opacity: 0.3;
+      letter-spacing: 0.01em;
+    }
+    .sobre__right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sobre__divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .sobre__text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--cream);
+      opacity: 0.8;
+    }
+    .sobre__stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .sobre__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .sobre__stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .sobre__stat-label {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.55;
+    }
+
+    /* ─── SECTION 3 — FLOW BANNER ─── */
+    .flow-banner {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .flow-banner__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero.png');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.45);
+    }
+    .flow-banner__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .flow-banner__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .flow-banner__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 15vw, 200px);
+      line-height: 0.9;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+    }
+    .flow-banner__script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--cream);
+      opacity: 0.9;
+    }
+    .flow-banner__line {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+    .flow-banner__body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      opacity: 0.7;
+    }
+
+    /* ─── SECTION 4 — AULAS ─── */
+    .aulas {
+      background: #F5EDD8;
+      padding: 120px 80px;
+    }
+    .aulas__grid {
+      display: grid;
+      grid-template-columns: 40% 55%;
+      gap: 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .aulas__left {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .aulas__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .aulas__heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 5vw, 80px);
+      line-height: 0.95;
+      color: var(--brown);
+    }
+    .aulas__body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--brown);
+      opacity: 0.75;
+    }
+    .aulas__btn {
+      display: inline-block;
+      border: 1.5px solid var(--brown);
+      background: transparent;
+      color: var(--brown);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      align-self: flex-start;
+    }
+    .aulas__btn:hover { background: var(--brown); color: var(--cream); }
+    .aulas__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .class-card {
+      background: var(--brown);
+      border-top: 3px solid var(--gold);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .class-card__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--cream);
+      letter-spacing: 0.03em;
+    }
+    .class-card__tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .class-card__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 10px;
+    }
+    .class-card__desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--cream);
+      opacity: 0.7;
+    }
+    .class-card__schedule {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      border-top: 1px solid rgba(201,169,110,0.25);
+      padding-top: 16px;
+    }
+
+    /* ─── SECTION 5 — BENEFITS ─── */
+    .benefits {
+      background: #0e0704;
+      padding: 120px 0;
+    }
+    .benefits__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 68px);
+      color: var(--cream);
+      text-align: center;
+      letter-spacing: 0.03em;
+      margin-bottom: 80px;
+      padding: 0 40px;
+    }
+    .benefit-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+    .benefit-row__text {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .benefit-row__num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      color: var(--gold);
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .benefit-row__heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 3vw, 48px);
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+    }
+    .benefit-row__body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--cream);
+      opacity: 0.65;
+      max-width: 420px;
+    }
+    .benefit-row__image {
+      background: radial-gradient(ellipse at 40% 50%, #4a2010 0%, #1e0a04 60%, #0e0704 100%);
+      min-height: 400px;
+    }
+    /* alternating: even rows swap order */
+    .benefit-row:nth-child(even) .benefit-row__text { order: 2; }
+    .benefit-row:nth-child(even) .benefit-row__image { order: 1; }
+
+    /* ─── SECTION 6 — CTA VAMOS JUNTOS ─── */
+    .cta-mid {
+      background: var(--cream);
+      padding: 120px 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .cta-mid__script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      color: var(--brown);
+    }
+    .cta-mid__heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 8vw, 110px);
+      line-height: 0.9;
+      color: var(--brown);
+      letter-spacing: 0.01em;
+    }
+    .cta-mid__sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--brown);
+      opacity: 0.65;
+    }
+    .cta-mid__btn {
+      display: inline-block;
+      background: var(--brown);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 40px;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .cta-mid__btn:hover { opacity: 0.85; }
+
+    /* ─── SECTION 7 — TESTIMONIALS MARQUEE ─── */
+    .testimonials {
+      background: #0e0704;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .testimonials__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .marquee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+    }
+    .marquee-track--row1 {
+      animation: marqueeLeft 40s linear infinite;
+    }
+    .marquee-track--row2 {
+      animation: marqueeLeft 55s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeLeft {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .t-card {
+      background: var(--cream);
+      width: 320px;
+      flex-shrink: 0;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .t-card__quote {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--brown);
+    }
+    .t-card__footer {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .t-card__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+    .t-card__stars {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    /* ─── SECTION 8 — PRICING ─── */
+    .pricing {
+      background: #F5EDD8;
+      padding: 120px 80px;
+    }
+    .pricing__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 5vw, 72px);
+      color: var(--brown);
+      text-align: center;
+      letter-spacing: 0.05em;
+      margin-bottom: 64px;
+    }
+    .pricing__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .price-card {
+      background: #fff;
+      border-top: 3px solid var(--gold);
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+    .price-card--featured {
+      background: var(--brown);
+      transform: scale(1.05);
+    }
+    .price-card__badge {
+      position: absolute;
+      top: -1px;
+      right: 28px;
+      background: var(--gold);
+      color: var(--brown);
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    .price-card__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .price-card__price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      line-height: 1;
+      color: var(--brown);
+      letter-spacing: 0.01em;
+    }
+    .price-card--featured .price-card__price { color: var(--cream); }
+    .price-card__period {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-top: -16px;
+    }
+    .price-card--featured .price-card__period { color: var(--cream); opacity: 0.6; }
+    .price-card__features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .price-card__features li {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--brown);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .price-card--featured .price-card__features li { color: var(--cream); opacity: 0.85; }
+    .price-card__features li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 10px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ─── SECTION 9 — FINAL CTA ─── */
+    .final-cta {
+      background: #0e0704;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 40px;
+      gap: 24px;
+    }
+    .final-cta__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .final-cta__heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 11vw, 160px);
+      line-height: 0.92;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
+    .final-cta__script {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--cream);
+      opacity: 0.75;
+    }
+    .final-cta__buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 36px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .btn-gold:hover { opacity: 0.85; }
+    .btn-outline-cream {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--cream);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 36px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-outline-cream:hover { background: rgba(240,230,204,0.1); }
+    .final-cta__footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      opacity: 0.4;
+      margin-top: 32px;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .sobre { padding: 80px 28px; }
+      .sobre__grid { grid-template-columns: 1fr; gap: 48px; }
+      .sobre__stats { gap: 24px; }
+
+      .flow-banner__title { font-size: clamp(80px, 20vw, 130px); }
+
+      .aulas { padding: 80px 28px; }
+      .aulas__grid { grid-template-columns: 1fr; gap: 48px; }
+      .aulas__left { position: static; }
+      .class-card { padding: 28px; }
+
+      .benefits { padding: 80px 0; }
+      .benefit-row { grid-template-columns: 1fr; }
+      .benefit-row__text { padding: 48px 28px; order: 2 !important; }
+      .benefit-row__image { order: 1 !important; min-height: 260px; }
+      .benefit-row__body { max-width: 100%; }
+
+      .cta-mid { padding: 80px 28px; }
+
+      .pricing { padding: 80px 28px; }
+      .pricing__cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .price-card--featured { transform: none; }
+
+      .final-cta__heading { font-size: clamp(64px, 14vw, 100px); }
+      .final-cta__buttons { flex-direction: column; align-items: center; }
+
+      .t-card { width: 260px; padding: 24px; }
     }
   </style>
 </head>
@@ -312,7 +934,366 @@
     </div>
   </section>
 
-  <div class="coming-soon">mais seções em breve</div>
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — SOBRE NÓS
+  ═══════════════════════════════════════════ -->
+  <section class="sobre">
+    <div class="sobre__grid">
+      <div data-reveal>
+        <h2 class="sobre__heading">RESPIRE,<br>SE ALONGUE,<br>SE TRANSFORME.</h2>
+      </div>
+      <div class="sobre__right" data-reveal>
+        <div class="sobre__divider"></div>
+        <p class="sobre__text">
+          Nanda Adarsha é professora de yoga com mais de 8 anos de experiência, especializada em unir movimento, respiração e presença para transformar corpo e mente. Sua abordagem é acolhedora, intuitiva e profundamente enraizada nas tradições do yoga clássico e contemporâneo. Cada aula é uma convite ao autoconhecimento — um espaço seguro para respirar fundo, se mover com intenção e reconectar com o que realmente importa.
+        </p>
+        <div class="sobre__stats">
+          <div class="sobre__stat">
+            <span class="sobre__stat-num">8+</span>
+            <span class="sobre__stat-label">anos de experiência</span>
+          </div>
+          <div class="sobre__stat">
+            <span class="sobre__stat-num">500+</span>
+            <span class="sobre__stat-label">alunos transformados</span>
+          </div>
+          <div class="sobre__stat">
+            <span class="sobre__stat-num">15+</span>
+            <span class="sobre__stat-label">estilos de yoga</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — ENCONTRE SEU FLOW
+  ═══════════════════════════════════════════ -->
+  <section class="flow-banner">
+    <div class="flow-banner__bg"></div>
+    <div class="flow-banner__content">
+      <span class="flow-banner__label">— encontre seu —</span>
+      <h2 class="flow-banner__title">FLOW</h2>
+      <span class="flow-banner__script">com Nanda Adarsha</span>
+      <div class="flow-banner__line"></div>
+      <p class="flow-banner__body">Cada respiração é um novo começo.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — SUA JORNADA COMEÇA AQUI
+  ═══════════════════════════════════════════ -->
+  <section class="aulas">
+    <div class="aulas__grid">
+      <div class="aulas__left" data-reveal>
+        <span class="aulas__label">Aulas</span>
+        <h2 class="aulas__heading">SUA JORNADA<br>COMEÇA AQUI</h2>
+        <p class="aulas__body">Classes para todos os níveis — do iniciante ao avançado. Encontre o ritmo que é seu.</p>
+        <a class="aulas__btn" href="#">Ver Preços</a>
+      </div>
+      <div class="aulas__cards">
+        <div class="class-card" data-reveal>
+          <h3 class="class-card__title">HATHA YOGA</h3>
+          <div class="class-card__tags">
+            <span class="class-card__tag">Todos os níveis</span>
+            <span class="class-card__tag">60 min</span>
+          </div>
+          <p class="class-card__desc">Uma prática suave e estruturada, ideal para quem está começando. Foco em posturas fundamentais, respiração consciente e alinhamento corporal.</p>
+          <div class="class-card__schedule">Seg · Qua · Sex — 07h00</div>
+        </div>
+        <div class="class-card" data-reveal>
+          <h3 class="class-card__title">VINYASA FLOW</h3>
+          <div class="class-card__tags">
+            <span class="class-card__tag">Intermediário</span>
+            <span class="class-card__tag">75 min</span>
+          </div>
+          <p class="class-card__desc">Sequências dinâmicas que conectam movimento e respiração em um fluxo meditativo. Desenvolve força, equilíbrio e presença.</p>
+          <div class="class-card__schedule">Ter · Qui — 08h00 · Sáb — 09h00</div>
+        </div>
+        <div class="class-card" data-reveal>
+          <h3 class="class-card__title">YIN &amp; MEDITAÇÃO</h3>
+          <div class="class-card__tags">
+            <span class="class-card__tag">Todos os níveis</span>
+            <span class="class-card__tag">90 min</span>
+          </div>
+          <p class="class-card__desc">Posturas passivas de longa duração combinadas com meditação guiada. Restaura o sistema nervoso e libera tensões profundas.</p>
+          <div class="class-card__schedule">Sex — 19h30 · Dom — 10h00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — BENEFITS
+  ═══════════════════════════════════════════ -->
+  <section class="benefits">
+    <h2 class="benefits__title">POR QUE O YOGA MUDA TUDO</h2>
+
+    <div class="benefit-row" data-reveal>
+      <div class="benefit-row__text">
+        <span class="benefit-row__num">01</span>
+        <h3 class="benefit-row__heading">FORÇA E FLEXIBILIDADE</h3>
+        <p class="benefit-row__body">Desenvolva um corpo forte e ágil através de práticas que respeitam seus limites e os expandem progressivamente.</p>
+      </div>
+      <div class="benefit-row__image"></div>
+    </div>
+
+    <div class="benefit-row" data-reveal>
+      <div class="benefit-row__text">
+        <span class="benefit-row__num">02</span>
+        <h3 class="benefit-row__heading">ALÍVIO DE ESTRESSE E CLAREZA MENTAL</h3>
+        <p class="benefit-row__body">O yoga ativa o sistema nervoso parassimpático, reduzindo o cortisol e promovendo foco e tranquilidade duradouros.</p>
+      </div>
+      <div class="benefit-row__image"></div>
+    </div>
+
+    <div class="benefit-row" data-reveal>
+      <div class="benefit-row__text">
+        <span class="benefit-row__num">03</span>
+        <h3 class="benefit-row__heading">POSTURA MELHOR E ALÍVIO DE DORES</h3>
+        <p class="benefit-row__body">Corrija desequilíbrios posturais e alivie tensões crônicas com movimentos terapêuticos e conscientes.</p>
+      </div>
+      <div class="benefit-row__image"></div>
+    </div>
+
+    <div class="benefit-row" data-reveal>
+      <div class="benefit-row__text">
+        <span class="benefit-row__num">04</span>
+        <h3 class="benefit-row__heading">PAZ INTERIOR E BEM-ESTAR EMOCIONAL</h3>
+        <p class="benefit-row__body">Cultive uma relação mais gentil consigo mesmo. O yoga é um caminho de autoconhecimento e equilíbrio emocional.</p>
+      </div>
+      <div class="benefit-row__image"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — VAMOS JUNTOS CTA
+  ═══════════════════════════════════════════ -->
+  <section class="cta-mid" data-reveal>
+    <p class="cta-mid__script">vamos juntos?</p>
+    <h2 class="cta-mid__heading">COMECE HOJE.</h2>
+    <p class="cta-mid__sub">Primeira aula gratuita. Sem compromisso.</p>
+    <a class="cta-mid__btn" href="#">Agendar Aula Gratuita</a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7 — TESTIMONIALS MARQUEE
+  ═══════════════════════════════════════════ -->
+  <section class="testimonials">
+    <p class="testimonials__label">MOMENTOS REAIS · EXPERIÊNCIAS REAIS</p>
+    <div class="marquee-wrapper">
+
+      <!-- ROW 1 — duplicated for seamless loop -->
+      <div class="marquee-track marquee-track--row1">
+        <div class="t-card">
+          <p class="t-card__quote">"O yoga com a Nanda mudou completamente minha relação com meu corpo. Aprendi a respirar de verdade pela primeira vez."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Sofia M. · Rio de Janeiro</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Cheguei com dores crônicas nas costas e em três meses o alívio foi incrível. As aulas são acolhedoras e muito bem conduzidas."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Carla R. · São Paulo</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Nunca imaginei que o yoga me daria tanta clareza mental. Estou mais focada, mais calma e muito mais feliz no dia a dia."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Ana Luiza F. · Curitiba</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"A Nanda tem um dom especial para guiar cada aluno no próprio ritmo. Me sinto vista e respeitada em cada aula."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Beatriz T. · Florianópolis</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"O Vinyasa Flow transformou minha disposição. Tenho mais energia, durmo melhor e me sinto mais forte do que aos 30 anos."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Márcia L. · Belo Horizonte</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <!-- duplicate set -->
+        <div class="t-card">
+          <p class="t-card__quote">"O yoga com a Nanda mudou completamente minha relação com meu corpo. Aprendi a respirar de verdade pela primeira vez."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Sofia M. · Rio de Janeiro</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Cheguei com dores crônicas nas costas e em três meses o alívio foi incrível. As aulas são acolhedoras e muito bem conduzidas."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Carla R. · São Paulo</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Nunca imaginei que o yoga me daria tanta clareza mental. Estou mais focada, mais calma e muito mais feliz no dia a dia."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Ana Luiza F. · Curitiba</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"A Nanda tem um dom especial para guiar cada aluno no próprio ritmo. Me sinto vista e respeitada em cada aula."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Beatriz T. · Florianópolis</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"O Vinyasa Flow transformou minha disposição. Tenho mais energia, durmo melhor e me sinto mais forte do que aos 30 anos."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Márcia L. · Belo Horizonte</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 — slightly different speed for depth -->
+      <div class="marquee-track marquee-track--row2">
+        <div class="t-card">
+          <p class="t-card__quote">"O Yin &amp; Meditação é a minha âncora semanal. Saio de cada aula renovada, como se tivesse dormido um sono profundo."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Juliana P. · Recife</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Sou completamente iniciante e me senti à vontade desde a primeira aula. A Nanda explica tudo com muita paciência e cuidado."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Fernanda C. · Porto Alegre</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Em seis meses de prática, minha postura melhorou tanto que colegas de trabalho perguntaram o que eu estava fazendo diferente."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Renata M. · Brasília</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"A Nanda vai além do físico. Ela ensina a viver com mais consciência e presença. Uma professora que transforma de verdade."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Isabela V. · Salvador</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Comecei o yoga para relaxar e acabei descobrindo uma versão mais forte e mais inteira de mim mesma. Recomendo de coração."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Priscila N. · Campinas</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <!-- duplicate set -->
+        <div class="t-card">
+          <p class="t-card__quote">"O Yin &amp; Meditação é a minha âncora semanal. Saio de cada aula renovada, como se tivesse dormido um sono profundo."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Juliana P. · Recife</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Sou completamente iniciante e me senti à vontade desde a primeira aula. A Nanda explica tudo com muita paciência e cuidado."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Fernanda C. · Porto Alegre</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Em seis meses de prática, minha postura melhorou tanto que colegas de trabalho perguntaram o que eu estava fazendo diferente."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Renata M. · Brasília</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"A Nanda vai além do físico. Ela ensina a viver com mais consciência e presença. Uma professora que transforma de verdade."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Isabela V. · Salvador</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="t-card">
+          <p class="t-card__quote">"Comecei o yoga para relaxar e acabei descobrindo uma versão mais forte e mais inteira de mim mesma. Recomendo de coração."</p>
+          <div class="t-card__footer">
+            <span class="t-card__name">Priscila N. · Campinas</span>
+            <span class="t-card__stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 8 — PRICING
+  ═══════════════════════════════════════════ -->
+  <section class="pricing">
+    <h2 class="pricing__title">PLANOS</h2>
+    <div class="pricing__cards">
+
+      <div class="price-card" data-reveal>
+        <span class="price-card__name">Básico</span>
+        <div class="price-card__price">R$197</div>
+        <span class="price-card__period">por mês</span>
+        <ul class="price-card__features">
+          <li>2 aulas por semana</li>
+          <li>Acesso às aulas online</li>
+          <li>Material de apoio digital</li>
+        </ul>
+      </div>
+
+      <div class="price-card price-card--featured" data-reveal>
+        <span class="price-card__badge">Mais Popular</span>
+        <span class="price-card__name">Essencial</span>
+        <div class="price-card__price">R$297</div>
+        <span class="price-card__period">por mês</span>
+        <ul class="price-card__features">
+          <li>4 aulas por semana</li>
+          <li>Acesso às aulas online</li>
+          <li>Material de apoio digital</li>
+          <li>Correção personalizada</li>
+        </ul>
+      </div>
+
+      <div class="price-card" data-reveal>
+        <span class="price-card__name">Imersão</span>
+        <div class="price-card__price">R$447</div>
+        <span class="price-card__period">por mês</span>
+        <ul class="price-card__features">
+          <li>Aulas ilimitadas</li>
+          <li>Mentoria mensal individual</li>
+          <li>Acesso a workshops exclusivos</li>
+          <li>Prioridade de agendamento</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 9 — FINAL CTA
+  ═══════════════════════════════════════════ -->
+  <section class="final-cta">
+    <span class="final-cta__label" data-reveal>— o próximo passo é seu —</span>
+    <h2 class="final-cta__heading" data-reveal>ESTÁ PRONTO<br>PARA COMEÇAR?</h2>
+    <p class="final-cta__script" data-reveal>sua transformação começa agora</p>
+    <div class="final-cta__buttons" data-reveal>
+      <a class="btn-gold" href="#">Agendar Agora</a>
+      <a class="btn-outline-cream" href="#">Falar no WhatsApp</a>
+    </div>
+    <p class="final-cta__footer">© 2026 Nanda Adarsha · Todos os direitos reservados</p>
+  </section>
 
   <script>
     /* ── Parallax ── */
@@ -371,6 +1352,14 @@
 
     hero.addEventListener('mousemove', e => updateShadows(e.clientX, e.clientY));
     hero.addEventListener('mouseleave', clearShadows);
+
+    /* ── Scroll Reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('revealed'); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
   </script>
 
 </body>
