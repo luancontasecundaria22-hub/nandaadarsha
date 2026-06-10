@@ -454,6 +454,45 @@
       flex-direction: column;
       gap: 24px;
     }
+    /* logo watermark inside class cards */
+    .class-card__logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      opacity: 0.18;
+      filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);
+      transition: opacity 0.3s;
+    }
+    .class-card:hover .class-card__logo { opacity: 0.38; }
+
+    /* logo beside benefit numbers */
+    .benefit-row__num-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .benefit-row__logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      opacity: 0.5;
+      filter: brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(400%) hue-rotate(5deg) brightness(95%);
+    }
+
+    /* logo in final cta */
+    .final-cta__logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      opacity: 0.22;
+      filter: brightness(0) invert(1);
+      margin-bottom: 24px;
+    }
+
     .class-card {
       background: var(--brown);
       border-top: 3px solid var(--gold);
@@ -991,7 +1030,8 @@
         <a class="aulas__btn" href="#">Ver Preços</a>
       </div>
       <div class="aulas__cards">
-        <div class="class-card" data-reveal>
+        <div class="class-card" data-reveal style="position:relative">
+          <img src="images/logo.png" alt="" class="class-card__logo">
           <h3 class="class-card__title">HATHA YOGA</h3>
           <div class="class-card__tags">
             <span class="class-card__tag">Todos os níveis</span>
@@ -1000,7 +1040,8 @@
           <p class="class-card__desc">Uma prática suave e estruturada, ideal para quem está começando. Foco em posturas fundamentais, respiração consciente e alinhamento corporal.</p>
           <div class="class-card__schedule">Seg · Qua · Sex — 07h00</div>
         </div>
-        <div class="class-card" data-reveal>
+        <div class="class-card" data-reveal style="position:relative">
+          <img src="images/logo.png" alt="" class="class-card__logo">
           <h3 class="class-card__title">VINYASA FLOW</h3>
           <div class="class-card__tags">
             <span class="class-card__tag">Intermediário</span>
@@ -1009,7 +1050,8 @@
           <p class="class-card__desc">Sequências dinâmicas que conectam movimento e respiração em um fluxo meditativo. Desenvolve força, equilíbrio e presença.</p>
           <div class="class-card__schedule">Ter · Qui — 08h00 · Sáb — 09h00</div>
         </div>
-        <div class="class-card" data-reveal>
+        <div class="class-card" data-reveal style="position:relative">
+          <img src="images/logo.png" alt="" class="class-card__logo">
           <h3 class="class-card__title">YIN &amp; MEDITAÇÃO</h3>
           <div class="class-card__tags">
             <span class="class-card__tag">Todos os níveis</span>
@@ -1030,7 +1072,7 @@
 
     <div class="benefit-row" data-reveal>
       <div class="benefit-row__text">
-        <span class="benefit-row__num">01</span>
+        <div class="benefit-row__num-wrap"><span class="benefit-row__num">01</span><img src="images/logo.png" alt="" class="benefit-row__logo"></div>
         <h3 class="benefit-row__heading">FORÇA E FLEXIBILIDADE</h3>
         <p class="benefit-row__body">Desenvolva um corpo forte e ágil através de práticas que respeitam seus limites e os expandem progressivamente.</p>
       </div>
@@ -1039,7 +1081,7 @@
 
     <div class="benefit-row" data-reveal>
       <div class="benefit-row__text">
-        <span class="benefit-row__num">02</span>
+        <div class="benefit-row__num-wrap"><span class="benefit-row__num">02</span><img src="images/logo.png" alt="" class="benefit-row__logo"></div>
         <h3 class="benefit-row__heading">ALÍVIO DE ESTRESSE E CLAREZA MENTAL</h3>
         <p class="benefit-row__body">O yoga ativa o sistema nervoso parassimpático, reduzindo o cortisol e promovendo foco e tranquilidade duradouros.</p>
       </div>
@@ -1048,7 +1090,7 @@
 
     <div class="benefit-row" data-reveal>
       <div class="benefit-row__text">
-        <span class="benefit-row__num">03</span>
+        <div class="benefit-row__num-wrap"><span class="benefit-row__num">03</span><img src="images/logo.png" alt="" class="benefit-row__logo"></div>
         <h3 class="benefit-row__heading">POSTURA MELHOR E ALÍVIO DE DORES</h3>
         <p class="benefit-row__body">Corrija desequilíbrios posturais e alivie tensões crônicas com movimentos terapêuticos e conscientes.</p>
       </div>
@@ -1057,7 +1099,7 @@
 
     <div class="benefit-row" data-reveal>
       <div class="benefit-row__text">
-        <span class="benefit-row__num">04</span>
+        <div class="benefit-row__num-wrap"><span class="benefit-row__num">04</span><img src="images/logo.png" alt="" class="benefit-row__logo"></div>
         <h3 class="benefit-row__heading">PAZ INTERIOR E BEM-ESTAR EMOCIONAL</h3>
         <p class="benefit-row__body">Cultive uma relação mais gentil consigo mesmo. O yoga é um caminho de autoconhecimento e equilíbrio emocional.</p>
       </div>
@@ -1285,6 +1327,7 @@
        SECTION 9 — FINAL CTA
   ═══════════════════════════════════════════ -->
   <section class="final-cta">
+    <img src="images/logo.png" alt="" class="final-cta__logo" data-reveal>
     <span class="final-cta__label" data-reveal>— o próximo passo é seu —</span>
     <h2 class="final-cta__heading" data-reveal>ESTÁ PRONTO<br>PARA COMEÇAR?</h2>
     <p class="final-cta__script" data-reveal>sua transformação começa agora</p>
